@@ -1,6 +1,8 @@
 class Tank {
-  int x, y, w, h, speed, health;
-  PImage t1;
+  // Member Variable
+  float x, y, w, h, speed, health;
+  PImage tW, tA, tS, tD;
+  char idir;
 
   // Constructor
   Tank() {
@@ -8,17 +10,41 @@ class Tank {
     y = 100;
     w = 100;
     h = 100;
-    speed = 2;
+    speed = 8;
     health = 100;
-    t1 = loadImage("tank.png");
+    tW = loadImage("tankW.png");
+    tA = loadImage("tankA.png");
+    tS = loadImage("tankS.png");
+    tD = loadImage("tankD.png");
+    idir = 'w';
   }
-  
+
   void display() {
     imageMode(CENTER);
-    image (t1,x,y);
+    if (idir == 'w') {
+      image (tW, x, y);
+    } else if (idir == 'a') {
+      image (tA, x, y);
+    } else if (idir == 's') {
+      image (tS, x, y);
+    } else if (idir == 'd') {
+      image (tD, x, y);
+    }
   }
-  
-  void move() {
-    x = x + speed;
+
+  void move(char dir) {
+    if (dir == 'w') {
+      idir  = 'w';
+      y = y - speed;
+    } else if (dir == 's') {
+      idir = 's';
+      y = y + speed;
+    } else if (dir == 'a') {
+      idir = 'a';
+      x = x - speed;
+    } else if (dir == 'd') {
+      idir = 'd';
+      x = x + speed;
+    }
   }
 }
