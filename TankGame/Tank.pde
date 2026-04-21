@@ -12,10 +12,10 @@ class Tank {
     h = 100;
     speed = 8;
     health = 100;
-    tW = loadImage("tankW.png");
-    tA = loadImage("tankA.png");
-    tS = loadImage("tankS.png");
-    tD = loadImage("tankD.png");
+    tW = loadImage("t1.png");
+    tA = loadImage("t2.png");
+    tS = loadImage("t4.png");
+    tD = loadImage("t3.png");
     idir = 'w';
   }
 
