@@ -16,7 +16,7 @@ class Projectile {
   }
 
 
-  void move(int x, int y) {
+  void move() {
     y = y - speed;
   }
 }
