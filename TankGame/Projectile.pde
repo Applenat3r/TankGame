@@ -1,5 +1,5 @@
 class Projectile {
- int x, y, w, h, speed;
+  int x, y, w, h, speed;
 
   // Constructor
   Projectile(int x, int y) {
@@ -18,5 +18,9 @@ class Projectile {
 
   void move() {
     y = y - speed;
+  }
+
+  boolean reachedEdge() {
+    return x >= width+150 || x <= -150 || y > height + 150 || y < - 150;
   }
 }

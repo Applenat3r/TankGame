@@ -31,9 +31,12 @@ void draw() {
 
   // Displaying projectiles
   for (int i = 0; i < obstacles.size(); i++) {
-    Obstacle obs = obstacles.get(i);
-    obs.display();
-    obs.move();
+    Obstacle o = obstacles.get(i);
+    o.display();
+    o.move();
+    if (o.reachedEdge()) {
+      obstacles.remove(i);
+    }
   }
   // Displaying projectiles
   for (int i = 0; i < projectiles.size(); i++) {

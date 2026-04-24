@@ -27,14 +27,13 @@ class Obstacle {
       x = -100;
       y = random(height);
     }
-      obst1 = loadImage("obj.png");
+    obst1 = loadImage("obj.png");
   }
 
   void display() {
     imageMode(CENTER);
     image(obst1, x, y);
   }
-
 
   void move() {
     switch(idir) {
@@ -50,5 +49,9 @@ class Obstacle {
     case 'd' :
       x =x + speed;
     }
+  }
+
+  boolean reachedEdge() {
+    return x >= width+150 || x <= -150 || y > height + 150 || y < - 150;
   }
 }
