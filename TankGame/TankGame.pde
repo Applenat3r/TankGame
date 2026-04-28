@@ -37,15 +37,33 @@ void draw() {
     if (o.reachedEdge()) {
       obstacles.remove(i);
     }
+    // detect collision to tank
+    if (tank1.intersect(o)) {
+      // impact to change score, health, obstacle
+    }
+    // impact to change score, health, obstacle
   }
-  // Displaying projectiles
+  // Render and detect collision
   for (int i = 0; i < projectiles.size(); i++) {
     Projectile p = projectiles.get(i);
+    for (int j = 0; j < obstacles.size(); j ++) {
+      Obstacle o = obstacles.get(j);
+      if (p.intersect(o)) {
+        projectiles.remove(i);
+        obstacles.remove(o);
+        continue;
+      }
+    }
     p.display();
     p.move();
+    if (p.reachedEdge()) {
+      projectiles.remove(i);
+    }
   }
   tank1.display();
   scorePanel();
+  println("Objects in Memory:" +obstacles.size());
+  println("Projectiles in Memory:" +projectiles.size());
 }
 
 void scorePanel() {

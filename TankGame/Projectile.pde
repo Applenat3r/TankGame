@@ -23,4 +23,12 @@ class Projectile {
   boolean reachedEdge() {
     return x >= width+150 || x <= -150 || y > height + 150 || y < - 150;
   }
+  boolean intersect(Obstacle o) {
+    float distance = dist(x, y, o.x, o.y);
+    if (distance < 100) {
+      return true;
+    } else {
+      return false;
+    }
+  }
 }
