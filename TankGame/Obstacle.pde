@@ -8,7 +8,7 @@ class Obstacle {
   Obstacle(float w, float h) {
     this.w = w;
     this.h = h;
-    speed = 10;
+    speed = 5;
     health = 10;
     if (int(random(4)) ==2) {
       idir = 'w';
@@ -53,6 +53,8 @@ class Obstacle {
 
   boolean reachedEdge() {
     return x >= width+150 || x <= -150 || y > height + 150 || y < - 150;
+  }
+   void fire() {
   }
   boolean intersect(Obstacle o) {
     float distance = dist(x, y, o.x, o.y);
